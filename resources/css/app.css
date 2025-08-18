@@ -35,7 +35,7 @@ body {
     box-shadow: 0 0 0 2px #6366f1;
 }
 .site-header {
-    @apply bg-white py-4 px-8 border-b-1;
+    @apply bg-gray-100 py-8 px-12 border-b-1;
 
     nav {
         @apply flex justify-between items-center;
