@@ -1,0 +1,243 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&family=Pacifico&display=swap");
+@import "tailwindcss";
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+/* tailwind config */
+@theme {
+    --font-sans: "Rubik", "ui-sans-serif", "system-ui", "sans-serif";
+    --font-display: "Pacifico", "cursive";
+}
+
+/* common styles */
+body {
+    @apply font-sans bg-gray-50;
+}
+.btn {
+    @apply bg-indigo-500 text-white px-4 py-2 rounded-sm cursor-pointer;
+}
+.site-header {
+    @apply bg-white py-4 px-8 border-b-1;
+
+    nav {
+        @apply flex justify-between items-center;
+    }
+}
+.site-title {
+    @apply font-display text-3xl;
+}
+.site-footer {
+    @apply my-12 pt-8 mx-0 text-gray-500 text-center mt-auto border-t-1;
+}
+.page-title {
+    @apply py-2 px-8 bg-gray-100 text-gray-400;
+}
+.content {
+    @apply text-gray-500 max-w-full box-border px-12 py-8 mx-auto w-5xl;
+}
+
+/* chapter list */
+.chapter-list {
+    .chapter {
+        @apply bg-gray-100 px-4 pr-8 py-4 my-4 relative rounded-sm overflow-hidden;
+    }
+    .chapter-title {
+        @apply text-lg font-bold mb-2;
+    }
+    .chapter-description {
+        @apply leading-relaxed text-gray-700;
+    }
+    .chapter-edit {
+        @apply py-1 px-2 bg-indigo-500 text-white cursor-pointer absolute top-0 right-0;
+        border-radius: 0 2px 0 2px;
+    }
+}
+
+/* chapter form */
+.form-group {
+    @apply my-4;
+
+    input,
+    textarea {
+        @apply mt-2 px-3 py-2 border-1 border-gray-200 rounded-sm bg-white w-full;
+    }
+    textarea {
+        height: 200px;
+    }
+    select {
+        @apply mt-2 px-3 py-2 border-1 border-gray-200 rounded-sm bg-white block;
+    }
+}
+.form-actions {
+    @apply flex justify-center;
+
+    button {
+        @apply bg-indigo-500 text-white py-2 px-3 rounded-sm;
+    }
+}
+
+/* chapter details */
+.chapter-details {
+    @apply flex flex-col gap-4 mt-12;
+
+    .chapter-title {
+        @apply text-lg font-bold mb-2;
+    }
+    .chapter-description {
+        @apply leading-relaxed text-gray-700;
+    }
+    .chapter-actions {
+        @apply flex justify-center mt-12 gap-4;
+    }
+}
+
+/* codex list */
+.codex-group {
+    @apply border-dotted border-2 rounded-sm mb-4;
+
+    h2 {
+        @apply font-bold p-4 border-b bg-gray-100;
+    }
+    ul {
+        @apply p-4;
+    }
+    li {
+        @apply my-2;
+    }
+    a {
+        @apply underline decoration-solid;
+    }
+}
+
+/* codex details */
+.codex-details {
+    .codex-actions {
+        @apply flex justify-center mt-12 gap-4;
+    }
+    h2 {
+        @apply text-lg font-bold mb-2;
+    }
+    .codex-meta {
+        @apply my-2;
+    }
+}
+
+/* dashboard */
+.dashboard {
+    min-height: calc(100vh - 120px);
+
+    @apply grid grid-cols-10 gap-2 mx-auto relative;
+}
+
+/* sortables */
+.sorting {
+    @apply outline-dotted outline-indigo-500 opacity-50;
+}
+.handle {
+    @apply absolute right-0 top-0 h-full flex items-center justify-center cursor-grab px-2 bg-gray-200;
+}
+
+/* codex-nav */
+.content.codex-list,
+.content.chapter-list {
+    @apply pb-0;
+}
+.codex-nav {
+    @apply relative self-stretch bg-white border-r-1;
+}
+
+/* info */
+.info {
+    @apply col-span-3 bg-gray-100 border-l;
+}
+
+/* filter buttons */
+.filters {
+    @apply mb-4 flex gap-2 items-center justify-end;
+
+    button {
+        @apply border-dashed border-1 py-1 px-2 rounded-sm;
+    }
+    button.active {
+        @apply bg-gray-500 text-white border-solid;
+    }
+}
+
+/* dark theme */
+.dark {
+    .info {
+        @apply bg-gray-800 border-gray-700;
+    }
+    body {
+        @apply bg-gray-800;
+    }
+    .site-header {
+        @apply bg-gray-900 border-gray-700 text-gray-300;
+    }
+    .site-title {
+        @apply text-white;
+    }
+    .site-footer {
+        @apply text-gray-200 border-gray-700;
+    }
+    .content {
+        @apply text-gray-200;
+    }
+    .chapter-list {
+        .chapter {
+            @apply bg-gray-700;
+        }
+        .chapter-description {
+            @apply text-gray-300;
+        }
+    }
+    .form-group {
+        input,
+        textarea {
+            @apply bg-gray-700 border-gray-700;
+        }
+        textarea {
+            @apply border-gray-700;
+        }
+        select {
+            @apply border-gray-700 bg-gray-700;
+        }
+    }
+    .chapter-details {
+        .chapter-description {
+            @apply text-gray-400;
+        }
+    }
+    .codex-group {
+        @apply border-gray-700;
+
+        h2 {
+            @apply border-gray-600 bg-gray-700;
+        }
+    }
+    .handle {
+        @apply bg-gray-600;
+    }
+    .codex-nav {
+        @apply bg-gray-800 border-gray-700;
+
+        input {
+            @apply border-gray-700 bg-gray-700;
+        }
+    }
+    .filters {
+        button.active {
+            @apply bg-gray-700;
+        }
+    }
+    .dashboard,
+    footer {
+        @apply bg-gray-800;
+    }
+    footer {
+        @apply mb-0 pb-12;
+    }
+}
