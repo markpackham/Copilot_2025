@@ -17,7 +17,22 @@ body {
     @apply font-sans bg-gray-50;
 }
 .btn {
-    @apply bg-indigo-500 text-white px-4 py-2 rounded-sm cursor-pointer;
+    background-color: #6366f1; /* indigo-500 */
+    color: #fff; /* white */
+    padding-left: 1rem; /* px-4 */
+    padding-right: 1rem; /* px-4 */
+    padding-top: 0.5rem; /* py-2 */
+    padding-bottom: 0.5rem; /* py-2 */
+    border-radius: 0.125rem; /* rounded-sm */
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.btn:hover {
+    background-color: #4f46e5; /* indigo-600 */
+}
+.btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #6366f1;
 }
 .site-header {
     @apply bg-white py-4 px-8 border-b-1;
