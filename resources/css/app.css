@@ -57,7 +57,8 @@ body {
 /* chapter list */
 .chapter-list {
     .chapter {
-        @apply bg-gray-100 px-4 pr-8 py-4 my-4 relative rounded-sm overflow-hidden;
+        @apply bg-gray-100 px-4 pr-8 py-4 my-4 relative rounded-sm overflow-hidden pl-12;
+        /* pl-12 adds space between handle and chapter content */
     }
     .chapter-title {
         @apply text-lg font-bold mb-2;
@@ -152,7 +153,8 @@ body {
     @apply outline-dotted outline-indigo-500 opacity-50;
 }
 .handle {
-    @apply absolute right-0 top-0 h-full flex items-center justify-center cursor-grab px-2 bg-gray-200;
+    @apply absolute left-0 top-0 h-full flex items-center justify-center cursor-grab px-4 bg-gray-200;
+    /* px-4 for extra spacing between handle and content */
 }
 
 /* codex-nav */
@@ -203,7 +205,8 @@ body {
     }
     .chapter-list {
         .chapter {
-            @apply bg-gray-700;
+            @apply bg-gray-700 pl-12;
+            /* Ensure dark theme also has left padding */
         }
         .chapter-description {
             @apply text-gray-300;
