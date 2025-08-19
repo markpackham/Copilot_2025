@@ -42,6 +42,9 @@
         <div class="chapter-description">
           {{ Str::words($chapter->description, 10, '...') }}
         </div>
+        <div class="chapter-meta text-xs text-gray-400 mt-2">
+          Last updated: {{ $chapter->updated_at->format('M d, Y H:i') }}
+        </div>
       </div>
     
 
