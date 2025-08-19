@@ -70,9 +70,25 @@
     Alpine.store('codex', {
       filter: 'all',
       search: '',
+      sortOrder: 'asc',
       matches(name) {
-      const term = this.search.trim().toLowerCase()
-      return term === '' || name.toLowerCase().includes(term)
+        const term = this.search.trim().toLowerCase()
+        return term === '' || name.toLowerCase().includes(term)
+      },
+      setSortOrder(order) {
+        this.sortOrder = order
+        document.querySelectorAll('.codex-group ul').forEach(ul => this.initializeEntries(ul))
+      },
+      initializeEntries(ul) {
+        const entries = Array.from(ul.children)
+        entries.sort((a, b) => {
+          const nameA = a.dataset.name.toLowerCase()
+          const nameB = b.dataset.name.toLowerCase()
+          return this.sortOrder === 'asc' 
+            ? nameA.localeCompare(nameB)
+            : nameB.localeCompare(nameA)
+        })
+        entries.forEach(entry => ul.appendChild(entry))
       }
     })
 

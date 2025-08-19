@@ -25,8 +25,14 @@
       :class="{'active': $store.codex.filter === 'location'}">Locations</button>
     </div>
 
+    <div class="sort-options filters mt-4">
+      <p>Sort by:</p>
+      <button x-on:click="$store.codex.setSortOrder('asc')" :class="{'active': $store.codex.sortOrder === 'asc'}">A to Z</button>
+      <button x-on:click="$store.codex.setSortOrder('desc')" :class="{'active': $store.codex.sortOrder === 'desc'}">Z to A</button>
+    </div>
+
     <div class="mb-6">
-    <input type="text" placeholder="Search codex ..." class="p-2 border rounded w-full" x-model="$store.codex.search">
+      <input type="text" placeholder="Search codex ..." class="p-2 border rounded w-full" x-model="$store.codex.search">
     </div>
     @endif
 
@@ -39,15 +45,18 @@
     <div class="codex-group codex-group-{{ $type }} mb-6"
     x-show="$store.codex.filter === 'all' || $store.codex.filter === '{{$type}}' ">
     <h2 class="text-lg font-semibold capitalize">{{ $type }}s</h2>
-    <ul class="ml-4">
-      @foreach ($codexEntries[$type] as $entry)
-      <li class="codex-entry" id="codex-entry-{{ $entry->id }}" x-show="$store.codex.matches('{{$entry->name}}')">
-      <a href="{{ route('outline.codex.show', $entry) }}" @if($isHtmx)
-      hx-get="{{ route('outline.codex.show', $entry) }}" hx-target="#modal" hx-swap="innerHTML" @endif>
-      {{ $entry->name }}
-      </a>
+    <ul class="ml-4" x-init="$store.codex.initializeEntries($el)">
+      @foreach ($codexEntries[$type]->sortBy('name') as $entry)
+      <li class="codex-entry" id="codex-entry-{{ $entry->id }}" 
+          x-show="$store.codex.matches('{{$entry->name}}')"
+          data-name="{{ $entry->name }}">
+        <a href="{{ route('outline.codex.show', $entry) }}" @if($isHtmx)
+          hx-get="{{ route('outline.codex.show', $entry) }}" hx-target="#modal" hx-swap="innerHTML" @endif>
+          {{ $entry->name }}
+        </a>
       </li>
-    @endforeach
+      @endforeach
+    </ul>
     </ul>
     </div>
     @endif
