@@ -6,6 +6,7 @@
   @fragment('create-codex-form')
   <div class="codex-create-form content">
     <form method="POST" action="{{ route('outline.codex.store') }}"
+      class="bordered-form"
       @if($isHtmx)
         hx-post="{{ route('outline.codex.store') }}"
         hx-target=".codex-list"

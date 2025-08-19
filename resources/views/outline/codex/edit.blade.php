@@ -8,6 +8,7 @@
     <form 
       method="POST" 
       action="{{ route('outline.codex.update', $codex) }}"
+      class="bordered-form"
       @if($isHtmx)
         hx-put="{{ route('outline.codex.update', $codex) }}"
         hx-target=".codex-list"

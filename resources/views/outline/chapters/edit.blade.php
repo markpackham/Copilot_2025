@@ -8,7 +8,7 @@
     <form 
       method="POST" 
       action="{{ route('outline.chapters.update', $chapter) }}"
-      class="edit-form"
+      class="edit-form bordered-form"
       @if($isHtmx)
         hx-put="{{ route('outline.chapters.update', $chapter) }}"
         hx-target=".chapter-list"

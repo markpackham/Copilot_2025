@@ -16,6 +16,11 @@
 body {
     @apply font-sans bg-gray-50;
 }
+
+.content form.bordered-form {
+    @apply border-2 border-dotted p-6 my-4;
+}
+
 .btn {
     background-color: #6366f1; /* indigo-500 */
     color: #fff; /* white */
