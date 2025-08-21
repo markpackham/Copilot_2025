@@ -11,6 +11,7 @@
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
   
   @vite('resources/css/app.css')
+  @livewireStyles
   @stack('head')
 </head>
 
@@ -53,5 +54,6 @@ x-init
   </div>
 
   @stack('scripts')
+  @livewireScripts
 </body>
 </html>
