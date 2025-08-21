@@ -49,7 +49,7 @@ x-init
 
     <!-- Footer -->
     <footer class="site-footer">
-      &copy; {{ date('Y') }} Arcitect. All rights reserved.
+      &copy; {{ date('Y') }} Arcitect. All rights reserved. ☺
     </footer>
   </div>
 
